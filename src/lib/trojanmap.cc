@@ -699,6 +699,14 @@ std::vector<std::string> TrojanMap::Autocomplete(std::string name){
  */
 std::pair<double, double> TrojanMap::GetPosition(std::string name) {
   std::pair<double, double> results(-1, -1);
+  for(auto it=data.begin();it!=data.end();it++){
+    std::string fullName=(*it).second.name;
+    if(fullName.empty()) continue;
+    if(name==(*it).second.name){
+      results.first=(*it).second.lat;
+      results.second=(*it).second.lon;
+    }
+  }
   return results;
 }
 
