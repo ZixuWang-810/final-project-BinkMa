@@ -672,6 +672,22 @@ double TrojanMap::CalculatePathLength(const std::vector<std::string> &path) {
  */
 std::vector<std::string> TrojanMap::Autocomplete(std::string name){
   std::vector<std::string> results;
+  for (auto it=data.begin();it!=data.end();it++){
+      int f=0;
+      std::string fullName=(*it).second.name;
+      if(fullName.empty()) {continue;}
+      for(int i=0;i<name.length();i++){
+          if(tolower(name.at(i)) == tolower(fullName.at(i))|| toupper(name.at(i))== toupper((fullName.at(i))))
+              continue;
+          else{
+              f=1;
+              break;
+          }
+      }
+      if(f==0){
+          results.push_back(fullName);
+      }
+  }
   return results;
 }
 

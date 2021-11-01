@@ -72,9 +72,9 @@ Next, type the following, but make sure that you set the **path_to_install_folde
 $ cd opencv/
 $ mkdir build install
 $ cd build
-$ cmake -D CMAKE_INSTALL_PREFIX=**path_to_install_folder**\
+$ cmake -D CMAKE_INSTALL_PREFIX=/Users/binma/USC_EE/EE538/final-project-BinkMa/opencv/install\
  -D BUILD_LIST=core,highgui,imgcodecs,imgproc,videoio\
- -D WITH_TBB=ON -D WITH_OPENMP=ON -D WITH_IPP=ON\
+ -D WITH_TBB=ON -D WITH_OPENMP=OFF -D WITH_IPP=ON\
  -D CMAKE_BUILD_TYPE=RELEASE -D BUILD_EXAMPLES=OFF\
  -D WITH_NVCUVID=ON\
  -D WITH_CUDA=ON\
