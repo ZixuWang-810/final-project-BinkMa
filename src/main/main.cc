@@ -5,7 +5,7 @@
 
 int main() {
   TrojanMap x;
-  x.CreateGraphFromCSVFile();6
+  x.CreateGraphFromCSVFile();
   x.PrintMenu();
   return 0;
 

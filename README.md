@@ -176,8 +176,18 @@ Please input a partial location:ch
 ChickfilA
 Chipotle Mexican Grill
 **************************************************************
-Time taken by function: 1904 microseconds
+Time taken by function: 344 microseconds
 ```
+  ```c++
+  for (auto it=data.begin();it!=data.end();it++){
+
+      for(int i=0;i<name.length();i++){
+      }
+  }
+  ```
+Time complexity: O(n*l),
+n is the number of vertices in self.data, l is the length of a node name 
+
 
 ## Step 2: Find the place's Coordinates in the Map
 
@@ -212,6 +222,16 @@ Time taken by function: 1215 microseconds
 ```
 
 <p align="center"><img src="img/Target.png" alt="Target" width="500"/></p>
+
+```c++
+std::pair<double, double> TrojanMap::GetPosition(std::string name) {
+  for(auto it=data.begin();it!=data.end();it++){
+
+  }
+```
+Time complexity: O(n),
+
+n is the number of nodes in self.data 
 
 ## Step 3: CalculateShortestPath between two places
 
@@ -256,6 +276,40 @@ Time taken by function: 45149 microseconds
 ```
 
 <p align="center"><img src="img/Routing.png" alt="Routing" width="500"/></p>
+
+```c++
+std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(
+    std::string location1_name, std::string location2_name) {
+    while(!q.empty()){
+      if(curr != end){
+        for(auto neighbor:data[curr].neighbors){
+
+        }
+      }}
+    }
+```
+Time complexity: O(n + m*log(m)),
+n is the number of nodes in self.data, m is the number of edges (paths) 
+
+```c++
+std::vector<std::string> TrojanMap::CalculateShortestPath_Bellman_Ford(
+    std::string location1_name, std::string location2_name){
+
+for (int i = 0; i < data.size()-1; i++){
+    for (auto pair: data){
+    //  std::string cur = pair.first;
+      for (auto neighbor: pair.second.neighbors){
+      }
+      }
+   }
+```
+
+Time complexity: O(n*m),
+
+where n is the number of nodes in data, m is the number of edges .
+
+
+
 
 ## Step 4: The Traveling Trojan Problem (AKA Traveling Salesman!)
 
@@ -304,6 +358,31 @@ Time taken by function: 152517394 microseconds
 <p align="center"><img src="img/TSP.png" alt="TSP" width="500"/></p>
 
 <p align="center"><img src="img/output.gif" alt="TSP videos" width="500"/></p>
+
+
+```c++
+std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan(std::vector<std::string> &location_ids) {
+  
+}
+
+```
+Solving TSP with backtracking
+Time complexity:  O((n-1)!),
+where n is the number of nodes in self.data
+
+```c++
+std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan_2opt(std::vector<std::string> &location_ids){
+     while(improving){
+        for (int i = 1; i <= n - 2; i++) {
+            for (int k = i+1 ; k<= n - 1; k++) {
+            }
+        }
+     }
+}
+```
+Solving TSP with 2-opt
+Time complexity:  O(n^2),
+where n is the number of nodes in self.data
 
 ## Step 5: Cycle Detection
 
@@ -371,6 +450,22 @@ there exist no cycle in the subgraph
 **************************************************************
 Time taken by function: 290371 microseconds
 ```
+```c++
+bool CycleDetection(std::vector<double> &square){
+  for(auto node_id :Node_ids){
+     ...;
+     if(IsCycleUtil(node_id, visited, prev, cycle_path)==true) return true;  
+  }
+}
+bool TrojanMap::IsCycleUtil(std::string node_id, std::map<std::string, bool> &visited ,std::string prev, std::vector<std::string> &cycle_path){
+
+  for(auto neighbor: data[node_id].neighbors){
+
+  }
+```
+Time complexity: O(m+n),
+n is the number of location ids in the data, m is the number of edges.
+
 ## Step 6: Topological Sort
 
 ```c++
@@ -423,6 +518,27 @@ Time taken by function: 43 microseconds
 <p align="center"><img src="img/TopologicalSort.png" alt="TSP" width="500"/></p>
 
 In the user interface, we read the locations and dependencies from `topologicalsort_dependencies.csv` and `topologicalsort_locations.csv` to modify your input there.
+
+```c++
+vector<string> TrojanMap::DeliveringTrojan(vector<string> &locations, vector<vector<string>> &dependencies)
+  for(auto root: roots){
+    DFS_helper_with_topo(root, visited, depend_map,result);
+  }
+
+void TrojanMap::DFS_helper_with_topo(std::string root, std::map<std::string, int> &visited,std::unordered_map<std::string, 
+std::vector<std::string>> &depend_map,std::vector<std::string> &result){
+    for(auto child: depend_map[root]){
+
+    }
+}
+
+```
+
+DFS is used for topological sort.
+
+Time complexity: O(m+n), 
+n is the number of nodes data, m is the number of edges.
+
 
 ## Step 7: Find K closest points
 
@@ -524,4 +640,13 @@ Your README file should include two sections:
    ```shell
    $ bazel run --cxxopt='-std=c++17' src/main:main
    ```
-
+```c++
+std::vector<std::string> FindKClosestPoints(std::string name, int k){
+  for(auto nodes_obj:data){
+    if(nodes_obj.second.name.size()!=0 && nodes_obj.second.name!=name){
+    }
+  }
+}
+```
+Time complexity: O(n), 
+n is the number of nodes data
