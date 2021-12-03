@@ -112,24 +112,24 @@ class TrojanMap {
   // that satisfies the given dependencies.
   std::vector<std::string> DeliveringTrojan(std::vector<std::string> &location_names,
                                             std::vector<std::vector<std::string>> &dependencies);
-
+  void DFS_helper_with_topo(std::string root, std::map<std::string, int> &visited,std::unordered_map<std::string, std::vector<std::string>> &depend_map,std::vector<std::string> &result);
   // Given a vector of location ids, it should reorder them such that the path
   // that covers all these points has the minimum length.
   // The return value is a pair where the first member is the total_path,
   // and the second member is the reordered vector of points.
   // (Notice that we don't find the optimal answer. You can return an estimated
   // path.)
-  std::pair<double, std::vector<std::vector<std::string>>> TravellingTrojan(
-      std::vector<std::string> &location_ids);
-
+  std::pair<double, std::vector<std::vector<std::string>>> TravellingTrojan(std::vector<std::string> &location_ids);
+  void TSP_aux(std::vector<std::string> &ids, std::vector<std::vector<std::string>> &paths, std::vector<std::string> &curPath, double &curDis, double &minDis);
   
   std::pair<double, std::vector<std::vector<std::string>>> TravellingTrojan_2opt(
       std::vector<std::string> &location_ids);
-
+  std::vector<std::string> swapTwo(const std::vector<std::string> &route, int i, int k);
   // Given a subgraph specified by a square-shape area, determine whether there is a
   // cycle or not in this subgraph.
   // vector square has 4 elements: left/right/top/bottom bound in order.
   bool CycleDetection(std::vector<double> &square);
+  bool IsCycleUtil(std::string node_id, std::map<std::string, bool> &visited ,std::string prev, std::vector<std::string> &cycle_path);
 
   // Given a location id and k, find the k closest points on the map
   std::vector<std::string> FindKClosestPoints(std::string name, int k);
