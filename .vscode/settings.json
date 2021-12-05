@@ -99,7 +99,17 @@
     "variant": "cpp",
     "*.tcc": "cpp",
     "memory_resource": "cpp",
-    "stop_token": "cpp"
+    "stop_token": "cpp",
+    "barrier": "cpp",
+    "charconv": "cpp",
+    "csetjmp": "cpp",
+    "coroutine": "cpp",
+    "latch": "cpp",
+    "scoped_allocator": "cpp",
+    "cuchar": "cpp",
+    "source_location": "cpp",
+    "ranges": "cpp",
+    "syncstream": "cpp"
   },
   "lldb.displayFormat": "auto",
   "lldb.dereferencePointers": true,

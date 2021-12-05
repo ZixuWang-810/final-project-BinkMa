@@ -119,9 +119,6 @@ class TrojanMap {
   // and the second member is the reordered vector of points.
   // (Notice that we don't find the optimal answer. You can return an estimated
   // path.)
-
-  std::pair<double, std::vector<std::vector<std::string>>> TravellingTrojan_BruteForce(std::vector<std::string> &location_ids);
-
   std::pair<double, std::vector<std::vector<std::string>>> TravellingTrojan(std::vector<std::string> &location_ids);
   void TSP_aux(std::vector<std::string> &ids, std::vector<std::vector<std::string>> &paths, std::vector<std::string> &curPath, double &curDis, double &minDis);
   

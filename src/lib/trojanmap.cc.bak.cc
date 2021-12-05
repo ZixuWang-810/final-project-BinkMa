@@ -832,52 +832,6 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Bellman_Ford(
  */
 
 
-std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan_BruteForce(std::vector<std::string> &location_ids) {
-  std::pair<double, std::vector<std::vector<std::string>>> results;
-
-  // Check whether the input is valid
-  if(location_ids.size() <= 1){
-    std::vector<std::vector<std::string>> path;
-    return make_pair(0, path);
-  } 
-
-  double min_distance = DBL_MAX;
-  std::vector<std::string> temp;
-
-  // Save the current path:
-  std::vector<std::string> cur_path;
-  temp.assign(location_ids.begin() + 1, location_ids.end());
-  std::sort(temp.begin(), temp.end());
-
-
-  // Brute-Force: Go through all permutations:
-
-  do {
-    cur_path.push_back(location_ids[0]);
-    for(auto id: temp){
-      cur_path.push_back(id);
-    }
-    cur_path.push_back(location_ids[0]);
-		double cur_length = CalculatePathLength(cur_path);
-    cur_path.clear();
-    if(cur_length < min_distance){
-      min_distance = cur_length;
-      results.first = min_distance;
-      std::vector<std::string> path;
-      path.push_back(location_ids[0]);
-      for(auto id: temp){
-        path.push_back(id);
-      }
-      path.push_back(location_ids[0]);
-      results.second.push_back(path);
-    }
-	} 
-  // cpp function that can rearranges the elements in the range [first,last).
-  while(next_permutation(temp.begin(), temp.end())); 
-  return results;
-}
-
-
 std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan(std::vector<std::string> &location_ids) {
   std::vector<std::vector<std::string>> path;  
   std::pair<double, std::vector<std::vector<std::string>>> results;

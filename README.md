@@ -649,4 +649,12 @@ std::vector<std::string> FindKClosestPoints(std::string name, int k){
 }
 ```
 Time complexity: O(n), 
-n is the number of nodes data
+n is the number of nodes data。
+
+
+
+Conclusion: 
+
+In this final project,  we mainly focus on the implementation of graph algorithms. From the most basic c++ syntax, to data structures, depth-first search algorithms, breadth-first search algorithms, backtracking algorithms, we have applied them all in this project.
+
+This project gave us initial experience in writing C++ projects, and at the same time gave us a deeper understanding of the features of C++, which is very helpful for our work and subsequent development。
