@@ -375,6 +375,8 @@ Solving TSP with backtracking
 Time complexity:  O((n-1)!),
 where n is the number of nodes in self.data
 
+<p align="center"><img src="img/2opt.png" alt="2opt" width="500"/></p>
+
 ```c++
 std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan_2opt(std::vector<std::string> &location_ids){
      while(improving){
@@ -604,6 +606,12 @@ Time complexity: O(n),
 n is the number of nodes data。
 
 
+Conclusion: 
+
+In this final project,  we mainly focus on the implementation of graph algorithms. From the most basic c++ syntax, to data structures, depth-first search algorithms, breadth-first search algorithms, backtracking algorithms, we have applied them all in this project.
+
+This project gave us initial experience in writing C++ projects, and at the same time gave us a deeper understanding of the features of C++, which is very helpful for our work and subsequent development。
+
 
 ## Reporting Runtime:
 For each menu item, your program should show the time it took to finish each task.
@@ -669,8 +677,4 @@ Your README file should include two sections:
 
 
 
-Conclusion: 
 
-In this final project,  we mainly focus on the implementation of graph algorithms. From the most basic c++ syntax, to data structures, depth-first search algorithms, breadth-first search algorithms, backtracking algorithms, we have applied them all in this project.
-
-This project gave us initial experience in writing C++ projects, and at the same time gave us a deeper understanding of the features of C++, which is very helpful for our work and subsequent development。
