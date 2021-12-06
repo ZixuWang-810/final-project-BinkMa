@@ -178,6 +178,8 @@ Chipotle Mexican Grill
 **************************************************************
 Time taken by function: 344 microseconds
 ```
+<p align="center"><img src="img/autocomplete.png" alt="auto" width="500"/></p>
+
   ```c++
   for (auto it=data.begin();it!=data.end();it++){
 

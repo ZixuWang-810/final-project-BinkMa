@@ -745,7 +745,7 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(
     std::map<std::string, std::string> pred; 
     std::map<std::string, double> distance;           // id map to its distance 
     std::priority_queue<std::pair<double, std::string>,std::vector<std::pair<double, std::string>>,std::greater<std::pair<double, std::string>>> q;
-
+    //min heap use priority queue
     if(start.size()<=1 || end.size()<=1) return path;
     for (auto it=data.begin();it!=data.end();it++){
       distance[(*it).second.id] = INT_MAX;
