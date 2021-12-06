@@ -178,7 +178,7 @@ Chipotle Mexican Grill
 **************************************************************
 Time taken by function: 344 microseconds
 ```
-<p align="center"><img src="img/autocomplete.png" alt="autocomplete" width="400"/></p>
+<p align="center"><img src="img/autocomplete.png" alt="autocomplete" width="300"/></p>
 
   ```c++
   for (auto it=data.begin();it!=data.end();it++){
@@ -224,7 +224,7 @@ Time taken by function: 1215 microseconds
 ```
 
 <p align="center"><img src="img/Target.png" alt="Target" width="500"/></p>
-
+<p align="center"><img src="img/getposition.png" alt="getposition" width="300"/></p>
 ```c++
 std::pair<double, double> TrojanMap::GetPosition(std::string name) {
   for(auto it=data.begin();it!=data.end();it++){
@@ -278,6 +278,7 @@ Time taken by function: 45149 microseconds
 ```
 
 <p align="center"><img src="img/Routing.png" alt="Routing" width="500"/></p>
+<p align="center"><img src="img/Dijkstra.png" alt="Dijkstra" width="300"/></p>
 
 ```c++
 std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(
@@ -293,6 +294,8 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(
 Time complexity: O(n + m*log(m)),
 n is the number of nodes in self.data, m is the number of edges (paths) 
 
+<p align="center"><img src="img/Bellman_ford.png" alt="Bellman_ford" width="300"/></p>
+
 ```c++
 std::vector<std::string> TrojanMap::CalculateShortestPath_Bellman_Ford(
     std::string location1_name, std::string location2_name){
@@ -307,7 +310,6 @@ for (int i = 0; i < data.size()-1; i++){
 ```
 
 Time complexity: O(n*m),
-
 where n is the number of nodes in data, m is the number of edges .
 
 
@@ -361,6 +363,7 @@ Time taken by function: 152517394 microseconds
 
 <p align="center"><img src="img/output.gif" alt="TSP videos" width="500"/></p>
 
+<p align="center"><img src="img/traveling.png" alt="traveling" width="300"/></p>
 
 ```c++
 std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan(std::vector<std::string> &location_ids) {
@@ -452,6 +455,10 @@ there exist no cycle in the subgraph
 **************************************************************
 Time taken by function: 290371 microseconds
 ```
+
+
+<p align="center"><img src="img/cycle.png" alt="cycle" width="300"/></p>
+
 ```c++
 bool CycleDetection(std::vector<double> &square){
   for(auto node_id :Node_ids){
@@ -521,6 +528,9 @@ Time taken by function: 43 microseconds
 
 In the user interface, we read the locations and dependencies from `topologicalsort_dependencies.csv` and `topologicalsort_locations.csv` to modify your input there.
 
+
+<p align="center"><img src="img/delivering.png" alt="delivering" width="300"/></p>
+
 ```c++
 vector<string> TrojanMap::DeliveringTrojan(vector<string> &locations, vector<vector<string>> &dependencies)
   for(auto root: roots){
@@ -579,6 +589,20 @@ Time taken by function: 1975 microseconds
 ```
 
 <p align="center"><img src="img/Kclosest.png" alt="Kclosest" width="500"/></p>
+
+<p align="center"><img src="img/KNN.png" alt="KNN" width="300"/></p>
+
+```c++
+std::vector<std::string> FindKClosestPoints(std::string name, int k){
+  for(auto nodes_obj:data){
+    if(nodes_obj.second.name.size()!=0 && nodes_obj.second.name!=name){
+    }
+  }
+}
+```
+Time complexity: O(n), 
+n is the number of nodes data。
+
 
 
 ## Reporting Runtime:
@@ -642,16 +666,6 @@ Your README file should include two sections:
    ```shell
    $ bazel run --cxxopt='-std=c++17' src/main:main
    ```
-```c++
-std::vector<std::string> FindKClosestPoints(std::string name, int k){
-  for(auto nodes_obj:data){
-    if(nodes_obj.second.name.size()!=0 && nodes_obj.second.name!=name){
-    }
-  }
-}
-```
-Time complexity: O(n), 
-n is the number of nodes data。
 
 
 
