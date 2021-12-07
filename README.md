@@ -176,7 +176,7 @@ Please input a partial location:ch
 ChickfilA
 Chipotle Mexican Grill
 **************************************************************
-Time taken by function: 344 microseconds
+Time taken by function: 315  microseconds
 ```
 <p align="center"><img src="img/autocomplete.png" alt="autocomplete" width="300"/></p>
 
@@ -220,19 +220,33 @@ Please input a location:Target
 *************************Results******************************
 Latitude: 34.0257 Longitude: -118.284
 **************************************************************
-Time taken by function: 1215 microseconds
+Time taken by function: 292 microseconds
 ```
 
 <p align="center"><img src="img/Target.png" alt="Target" width="500"/></p>
 <p align="center"><img src="img/getposition.png" alt="getposition" width="300"/></p>
+
 ```c++
 std::pair<double, double> TrojanMap::GetPosition(std::string name) {
   for(auto it=data.begin();it!=data.end();it++){
 
   }
 ```
-Time complexity: O(n),
 
+
+Please input a location:Target
+*************************Results******************************
+Latitude: 34.0257 Longitude: -118.284
+**************************************************************
+Time taken by function: 292 microseconds
+
+Please input a location:Ralphs
+*************************Results******************************
+Latitude: 34.0318 Longitude: -118.291
+**************************************************************
+Time taken by function: 296 microseconds
+
+Time complexity: O(n),
 n is the number of nodes in self.data 
 
 ## Step 3: CalculateShortestPath between two places
@@ -269,16 +283,25 @@ Output: ["2578244375", "5559640911", "6787470571", "6808093910", "6808093913", "
 * 3. CalculateShortestPath
 **************************************************************
 
+```
+
+<p align="center"><img src="img/Routing.png" alt="Routing" width="500"/></p>
+<p align="center"><img src="img/Dijkstra.png" alt="Dijkstra" width="300"/></p>
+
+
 Please input the start location:Ralphs
 Please input the destination:ChickfilA
 *************************Results******************************
 The distance of the path is:1.53852 miles
 **************************************************************
-Time taken by function: 45149 microseconds
-```
+Time taken by function: 44364 microseconds
 
-<p align="center"><img src="img/Routing.png" alt="Routing" width="500"/></p>
-<p align="center"><img src="img/Dijkstra.png" alt="Dijkstra" width="300"/></p>
+Please input the start location:Ralphs
+Please input the destination:Target
+*************************Results******************************
+The distance of the path is:0.839235 miles
+**************************************************************
+Time taken by function: 18839 microseconds
 
 ```c++
 std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(
@@ -295,6 +318,21 @@ Time complexity: O(n + m*log(m)),
 n is the number of nodes in self.data, m is the number of edges (paths) 
 
 <p align="center"><img src="img/Bellman_ford.png" alt="Bellman_ford" width="300"/></p>
+
+
+Please input the start location:Ralphs
+Please input the destination:ChickfilA
+*************************Results******************************
+The distance of the path is:1.53852 miles
+**************************************************************
+Time taken by function: 64629785 microseconds
+
+Please input the start location:Ralphs
+Please input the destination:Target
+*************************Results******************************
+The distance of the path is:0.839235 miles
+**************************************************************
+Time taken by function: 60059642 microseconds
 
 ```c++
 std::vector<std::string> TrojanMap::CalculateShortestPath_Bellman_Ford(
@@ -369,11 +407,25 @@ Time taken by function: 152517394 microseconds
 std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan(std::vector<std::string> &location_ids) {
   
 }
-
+void TrojanMap::TSP_aux(std::vector<std::string> &ids, std::vector<std::vector<std::string>> &paths, 
+                        std::vector<std::string> &curPath, double &curDis, double &minDis){                
+     for (int i = 1; i < ids.size(); i++) {
+       TSP_aux(ids, paths, curPath, curDis, minDis);
+     }                     
+  }
 ```
+Please input the number of the places:10
+Calculating ...
+*************************Results******************************
+The distance of the path is:4.70299 miles
+**************************************************************
+You could find your animation at src/lib/output.avi.          
+Time taken by function: 761572 microseconds
+
 Solving TSP with backtracking
 Time complexity:  O((n-1)!),
 where n is the number of nodes in self.data
+
 
 <p align="center"><img src="img/2opt.png" alt="2opt" width="500"/></p>
 
@@ -387,6 +439,13 @@ std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTr
      }
 }
 ```
+
+**************************************************************
+The distance of the path is:3.68783 miles
+**************************************************************
+You could find your animation at src/lib/output.avi.          
+Time taken by function: 4805 microseconds
+
 Solving TSP with 2-opt
 Time complexity:  O(n^2),
 where n is the number of nodes in self.data
@@ -433,7 +492,6 @@ void TrojanMap::PlotPointsandEdges(std::vector<std::string> &location_ids, std::
 **************************************************************
 * 5. Cycle Detection                                          
 **************************************************************
-
 Please input the left bound longitude(between -118.299 and -118.264):-118.299
 Please input the right bound longitude(between -118.299 and -118.264):-118.264
 Please input the upper bound latitude(between 34.011 and 34.032):34.032
@@ -441,21 +499,7 @@ Please input the lower bound latitude(between 34.011 and 34.032):34.011
 *************************Results******************************
 there exists cycle in the subgraph 
 **************************************************************
-Time taken by function: 273734 microseconds
-
-5
-**************************************************************
-* 5. Cycle Detection                                          
-**************************************************************
-
-Please input the left bound longitude(between -118.299 and -118.264):-118.290919
-Please input the right bound longitude(between -118.299 and -118.264):-118.282911
-Please input the upper bound latitude(between 34.011 and 34.032):34.02235
-Please input the lower bound latitude(between 34.011 and 34.032):34.019675
-*************************Results******************************
-there exist no cycle in the subgraph 
-**************************************************************
-Time taken by function: 290371 microseconds
+Time taken by function: 9470 microseconds
 ```
 
 
@@ -530,6 +574,15 @@ Time taken by function: 43 microseconds
 
 In the user interface, we read the locations and dependencies from `topologicalsort_dependencies.csv` and `topologicalsort_locations.csv` to modify your input there.
 
+Please input the locations filename:/Users/binma/USC_EE/EE538/final-project-BinkMa/input/topologicalsort_locations.csv
+Please input the dependencies filename:/Users/binma/USC_EE/EE538/final-project-BinkMa/input/topologicalsort_dependencies.csv
+*************************Results******************************
+Topological Sorting Results:
+Cardinal Gardens
+Coffee Bean1
+CVS
+**************************************************************
+Time taken by function: 58 microseconds
 
 <p align="center"><img src="img/delivering.png" alt="delivering" width="300"/></p>
 
@@ -577,18 +630,24 @@ Please report and compare the time spent by this algorithm and show the points o
 * 7. Find K Closest Points                                    
 **************************************************************
 
-Please input the locations:Ralphs
-Please input k:5
+Result:
+
+Please input the locations:Raphls
+Please input k:10
 *************************Results******************************
 Find K Closest Points Results:
-1 St Agnes Church
-2 Saint Agnes Elementary School
-3 Warning Skate Shop
-4 Menlo AvenueWest Twentyninth Street Historic District
-5 Vermont Elementary School
+1 FootballSoccer Field
+2 Hill 38 Washington
+3 61
+4 Historic SouthCentral
+5 Tap Two Blue
+6 Aldewaniah
+7 23rd Street
+8 Los Angeles Orthopaedic Hospital
+9 John Adams Middle School
+10 LATTCOrtho Institute
 **************************************************************
-Time taken by function: 1975 microseconds
-```
+Time taken by function: 2673 microseconds
 
 <p align="center"><img src="img/Kclosest.png" alt="Kclosest" width="500"/></p>
 
