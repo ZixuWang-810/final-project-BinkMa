@@ -648,6 +648,7 @@ Find K Closest Points Results:
 10 LATTCOrtho Institute
 **************************************************************
 Time taken by function: 2673 microseconds
+```
 
 <p align="center"><img src="img/Kclosest.png" alt="Kclosest" width="500"/></p>
 
