@@ -1,12 +1,10 @@
 # EE538 Final Project - Fall 2021 - TrojanMap
 
-## Deadline: 
-
-Video Presentation: Friday, December 3 by 2 pm
-
-Code submission: Monday, December 5 by 23:59 pm
 
 ## TrojanMap
+
+
+### Author: Zixu Wang, Bin Ma
 
 This project focuses on using data structures in C++ and implementing various graph algorithms to build a map application.
 
@@ -670,7 +668,6 @@ In this final project,  we mainly focus on the implementation of graph algorithm
 This project gave us initial experience in writing C++ projects, and at the same time gave us a deeper understanding of the features of C++, which is very helpful for our work and subsequent development。
 
 
-**Author: Bin Ma, Zixu Wang**
 
 
 
