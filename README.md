@@ -670,9 +670,7 @@ In this final project,  we mainly focus on the implementation of graph algorithm
 This project gave us initial experience in writing C++ projects, and at the same time gave us a deeper understanding of the features of C++, which is very helpful for our work and subsequent development。
 
 
-
-   Bin Ma
-   Zixu Wang
+**Author: Bin Ma, Zixu Wang**
 
 
 
